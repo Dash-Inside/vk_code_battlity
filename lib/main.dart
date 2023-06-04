@@ -5,7 +5,11 @@ import 'package:vk_bridge/vk_bridge.dart';
 
 void main() async {
   injectServices();
-  await VKBridge.instance.init();
 
-  runApp(const App());
+  VKWebAppBoolResult vkBridgeInitResult = await VKBridge.instance.init();
+  if (vkBridgeInitResult.result) {
+    runApp(const App());
+  } else {
+    runApp(const UnsupportedApp());
+  }
 }

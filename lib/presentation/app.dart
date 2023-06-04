@@ -24,3 +24,16 @@ class App extends StatelessWidget {
     );
   }
 }
+
+class UnsupportedApp extends StatelessWidget {
+  const UnsupportedApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: Text('Unsupported Device'),
+      ),
+    );
+  }
+}
