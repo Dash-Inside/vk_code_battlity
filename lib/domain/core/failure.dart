@@ -4,5 +4,6 @@ part 'failure.freezed.dart';
 
 @freezed
 abstract class Failure<T> {
+  const factory Failure.unsupported() = _Unsupported;
   const factory Failure.unimplemented() = _Uniplemented;
 }
