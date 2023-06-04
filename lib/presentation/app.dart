@@ -1,3 +1,5 @@
+import 'package:battlity/presentation/pages/forbidden_page.dart';
+import 'package:battlity/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -5,12 +7,20 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      title: 'Battlity',
+      onGenerateRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (context) {
+            switch (settings.name) {
+              case '/':
+                return const HomePage();
+            }
+
+            return const ForbiddenPage();
+          },
+        );
+      },
     );
   }
 }
