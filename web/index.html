@@ -23,6 +23,14 @@
   <script src="https://unpkg.com/@vkontakte/vk-bridge@2.5.1/dist/browser.min.js"></script>
 
   <script>
+    vkBridge.subscribe((event) => {
+      if (window.vkBridgeDartListener != null) {
+        window.vkBridgeDartListener(event.detail);
+      }
+    });
+  </script>
+
+  <script>
     var serviceWorkerVersion = null;
   </script>
 
@@ -30,13 +38,6 @@
 </head>
 
 <body>
-  <script>
-    vkBridge.subscribe((event) => {
-      if (window.vkBridgeDartListener != null) {
-        window.vkBridgeDartListener(event.detail);
-      }
-    });
-  </script>
   <script>
     window.addEventListener('load', function (ev) {
       // Download main.dart.js
